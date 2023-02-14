@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="createGameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateGameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="removeGameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGame">
+        <s:complexType />
+      </s:element>
+      <s:element name="getGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="removeUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="removeCartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertHeaderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addCartResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCartResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="showGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gameId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="showGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="showGameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUserListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHeaderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="headerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="showUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="showUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="showUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="registerSoapIn">
+    <wsdl:part name="parameters" element="tns:register" />
+  </wsdl:message>
+  <wsdl:message name="registerSoapOut">
+    <wsdl:part name="parameters" element="tns:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="createGameSoapIn">
+    <wsdl:part name="parameters" element="tns:createGame" />
+  </wsdl:message>
+  <wsdl:message name="createGameSoapOut">
+    <wsdl:part name="parameters" element="tns:createGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateGameSoapIn">
+    <wsdl:part name="parameters" element="tns:updateGame" />
+  </wsdl:message>
+  <wsdl:message name="updateGameSoapOut">
+    <wsdl:part name="parameters" element="tns:updateGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeGameSoapIn">
+    <wsdl:part name="parameters" element="tns:removeGame" />
+  </wsdl:message>
+  <wsdl:message name="removeGameSoapOut">
+    <wsdl:part name="parameters" element="tns:removeGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGameSoapIn">
+    <wsdl:part name="parameters" element="tns:getGame" />
+  </wsdl:message>
+  <wsdl:message name="getGameSoapOut">
+    <wsdl:part name="parameters" element="tns:getGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUser" />
+  </wsdl:message>
+  <wsdl:message name="updateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeUserSoapIn">
+    <wsdl:part name="parameters" element="tns:removeUser" />
+  </wsdl:message>
+  <wsdl:message name="removeUserSoapOut">
+    <wsdl:part name="parameters" element="tns:removeUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeCartSoapIn">
+    <wsdl:part name="parameters" element="tns:removeCart" />
+  </wsdl:message>
+  <wsdl:message name="removeCartSoapOut">
+    <wsdl:part name="parameters" element="tns:removeCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:insertHeader" />
+  </wsdl:message>
+  <wsdl:message name="insertHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:insertHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:insertDetail" />
+  </wsdl:message>
+  <wsdl:message name="insertDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:insertDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="addCartSoapIn">
+    <wsdl:part name="parameters" element="tns:addCart" />
+  </wsdl:message>
+  <wsdl:message name="addCartSoapOut">
+    <wsdl:part name="parameters" element="tns:addCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCartSoapIn">
+    <wsdl:part name="parameters" element="tns:getCart" />
+  </wsdl:message>
+  <wsdl:message name="getCartSoapOut">
+    <wsdl:part name="parameters" element="tns:getCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="buySoapIn">
+    <wsdl:part name="parameters" element="tns:buy" />
+  </wsdl:message>
+  <wsdl:message name="buySoapOut">
+    <wsdl:part name="parameters" element="tns:buyResponse" />
+  </wsdl:message>
+  <wsdl:message name="showGameSoapIn">
+    <wsdl:part name="parameters" element="tns:showGame" />
+  </wsdl:message>
+  <wsdl:message name="showGameSoapOut">
+    <wsdl:part name="parameters" element="tns:showGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserListSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserList" />
+  </wsdl:message>
+  <wsdl:message name="getUserListSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:getHeader" />
+  </wsdl:message>
+  <wsdl:message name="getHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:getHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:getDetail" />
+  </wsdl:message>
+  <wsdl:message name="getDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:getDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="showUserSoapIn">
+    <wsdl:part name="parameters" element="tns:showUser" />
+  </wsdl:message>
+  <wsdl:message name="showUserSoapOut">
+    <wsdl:part name="parameters" element="tns:showUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <wsdl:input message="tns:registerSoapIn" />
+      <wsdl:output message="tns:registerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createGame">
+      <wsdl:input message="tns:createGameSoapIn" />
+      <wsdl:output message="tns:createGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateGame">
+      <wsdl:input message="tns:updateGameSoapIn" />
+      <wsdl:output message="tns:updateGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeGame">
+      <wsdl:input message="tns:removeGameSoapIn" />
+      <wsdl:output message="tns:removeGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGame">
+      <wsdl:input message="tns:getGameSoapIn" />
+      <wsdl:output message="tns:getGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input message="tns:updateUserSoapIn" />
+      <wsdl:output message="tns:updateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeUser">
+      <wsdl:input message="tns:removeUserSoapIn" />
+      <wsdl:output message="tns:removeUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCart">
+      <wsdl:input message="tns:removeCartSoapIn" />
+      <wsdl:output message="tns:removeCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertHeader">
+      <wsdl:input message="tns:insertHeaderSoapIn" />
+      <wsdl:output message="tns:insertHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertDetail">
+      <wsdl:input message="tns:insertDetailSoapIn" />
+      <wsdl:output message="tns:insertDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addCart">
+      <wsdl:input message="tns:addCartSoapIn" />
+      <wsdl:output message="tns:addCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCart">
+      <wsdl:input message="tns:getCartSoapIn" />
+      <wsdl:output message="tns:getCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <wsdl:input message="tns:buySoapIn" />
+      <wsdl:output message="tns:buySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="showGame">
+      <wsdl:input message="tns:showGameSoapIn" />
+      <wsdl:output message="tns:showGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <wsdl:input message="tns:getUserListSoapIn" />
+      <wsdl:output message="tns:getUserListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHeader">
+      <wsdl:input message="tns:getHeaderSoapIn" />
+      <wsdl:output message="tns:getHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetail">
+      <wsdl:input message="tns:getDetailSoapIn" />
+      <wsdl:output message="tns:getDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="showUser">
+      <wsdl:input message="tns:showUserSoapIn" />
+      <wsdl:output message="tns:showUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap:operation soapAction="http://tempuri.org/register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createGame">
+      <soap:operation soapAction="http://tempuri.org/createGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGame">
+      <soap:operation soapAction="http://tempuri.org/updateGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeGame">
+      <soap:operation soapAction="http://tempuri.org/removeGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGame">
+      <soap:operation soapAction="http://tempuri.org/getGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="http://tempuri.org/updateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeUser">
+      <soap:operation soapAction="http://tempuri.org/removeUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCart">
+      <soap:operation soapAction="http://tempuri.org/removeCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHeader">
+      <soap:operation soapAction="http://tempuri.org/insertHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDetail">
+      <soap:operation soapAction="http://tempuri.org/insertDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCart">
+      <soap:operation soapAction="http://tempuri.org/addCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCart">
+      <soap:operation soapAction="http://tempuri.org/getCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <soap:operation soapAction="http://tempuri.org/buy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="showGame">
+      <soap:operation soapAction="http://tempuri.org/showGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <soap:operation soapAction="http://tempuri.org/getUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHeader">
+      <soap:operation soapAction="http://tempuri.org/getHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetail">
+      <soap:operation soapAction="http://tempuri.org/getDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="showUser">
+      <soap:operation soapAction="http://tempuri.org/showUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap12:operation soapAction="http://tempuri.org/register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createGame">
+      <soap12:operation soapAction="http://tempuri.org/createGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGame">
+      <soap12:operation soapAction="http://tempuri.org/updateGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeGame">
+      <soap12:operation soapAction="http://tempuri.org/removeGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGame">
+      <soap12:operation soapAction="http://tempuri.org/getGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap12:operation soapAction="http://tempuri.org/updateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeUser">
+      <soap12:operation soapAction="http://tempuri.org/removeUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCart">
+      <soap12:operation soapAction="http://tempuri.org/removeCart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertHeader">
+      <soap12:operation soapAction="http://tempuri.org/insertHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDetail">
+      <soap12:operation soapAction="http://tempuri.org/insertDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCart">
+      <soap12:operation soapAction="http://tempuri.org/addCart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCart">
+      <soap12:operation soapAction="http://tempuri.org/getCart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <soap12:operation soapAction="http://tempuri.org/buy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="showGame">
+      <soap12:operation soapAction="http://tempuri.org/showGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <soap12:operation soapAction="http://tempuri.org/getUserList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHeader">
+      <soap12:operation soapAction="http://tempuri.org/getHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetail">
+      <soap12:operation soapAction="http://tempuri.org/getDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="showUser">
+      <soap12:operation soapAction="http://tempuri.org/showUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://localhost:44378/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://localhost:44378/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

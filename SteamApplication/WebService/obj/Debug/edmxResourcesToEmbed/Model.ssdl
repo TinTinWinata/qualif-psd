@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="game_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="price" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transaction_id" Type="int" Nullable="false" />
+    <Property Name="game_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransactionHeader">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__Cart__game_id__4AB81AF0">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="game_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__user_id__49C3F6B7">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__game___4316F928">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="game_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__trans__4222D4EF">
+    <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
+    <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionHeader">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="transaction_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__user___276EDEB3">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TransactionHeader">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cart__game_id__4AB81AF0" Association="Self.FK__Cart__game_id__4AB81AF0">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__user_id__49C3F6B7" Association="Self.FK__Cart__user_id__49C3F6B7">
+      <End Role="User" EntitySet="User" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__game___4316F928" Association="Self.FK__Transacti__game___4316F928">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__trans__4222D4EF" Association="Self.FK__Transacti__trans__4222D4EF">
+      <End Role="TransactionHeader" EntitySet="TransactionHeader" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__user___276EDEB3" Association="Self.FK__Transacti__user___276EDEB3">
+      <End Role="User" EntitySet="User" />
+      <End Role="TransactionHeader" EntitySet="TransactionHeader" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

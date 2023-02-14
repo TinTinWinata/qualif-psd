@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.Master.cs" Inherits="SteamApplication.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        Welcome to Steam Application
+        <br />
+
+        <div id="navigationBar" runat="server">
+            <asp:Button ID="homeBtn" OnClick="homeBtn_Click" runat="server" Text="Home" />
+            <asp:Button ID="loginBtn" OnClick="loginBtn_Click" runat="server" Text="Login" />
+            <asp:Button ID="registerBtn" OnClick="registerBtn_Click" runat="server" Text="Register" />
+            <asp:Button ID="manageBtn" OnClick="manageBtn_Click" runat="server" Text="Manage" />
+            <asp:Button ID="cartBtn" OnClick="cartBtn_Click" runat="server" Text="My Cart" />
+            <asp:Button ID="transactionBtn" OnClick="transactionBtn_Click" runat="server" Text="My Transaction" /> 
+            <asp:Button ID="logoutBtn" OnClick="logoutBtn_Click" runat="server" Text="Logout" />
+
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

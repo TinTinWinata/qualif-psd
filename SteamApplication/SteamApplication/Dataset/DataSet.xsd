@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet" targetNamespace="http://tempuri.org/DataSet.xsd" xmlns:mstns="http://tempuri.org/DataSet.xsd" xmlns="http://tempuri.org/DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet" msprop:Generator_UserDSName="DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="transaction_header" msprop:Generator_TableClassName="transaction_headerDataTable" msprop:Generator_TableVarName="tabletransaction_header" msprop:Generator_RowChangedName="transaction_headerRowChanged" msprop:Generator_TablePropName="transaction_header" msprop:Generator_RowDeletingName="transaction_headerRowDeleting" msprop:Generator_RowChangingName="transaction_headerRowChanging" msprop:Generator_RowEvHandlerName="transaction_headerRowChangeEventHandler" msprop:Generator_RowDeletedName="transaction_headerRowDeleted" msprop:Generator_RowClassName="transaction_headerRow" msprop:Generator_UserTableName="transaction_header" msprop:Generator_RowEvArgName="transaction_headerRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" minOccurs="0" />
+              <xs:element name="user_id" msprop:Generator_ColumnVarNameInTable="columnuser_id" msprop:Generator_ColumnPropNameInRow="user_id" msprop:Generator_ColumnPropNameInTable="user_idColumn" msprop:Generator_UserColumnName="user_id" type="xs:string" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="transaction_detail" msprop:Generator_TableClassName="transaction_detailDataTable" msprop:Generator_TableVarName="tabletransaction_detail" msprop:Generator_RowChangedName="transaction_detailRowChanged" msprop:Generator_TablePropName="transaction_detail" msprop:Generator_RowDeletingName="transaction_detailRowDeleting" msprop:Generator_RowChangingName="transaction_detailRowChanging" msprop:Generator_RowEvHandlerName="transaction_detailRowChangeEventHandler" msprop:Generator_RowDeletedName="transaction_detailRowDeleted" msprop:Generator_RowClassName="transaction_detailRow" msprop:Generator_UserTableName="transaction_detail" msprop:Generator_RowEvArgName="transaction_detailRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transaction_id" msprop:Generator_ColumnVarNameInTable="columntransaction_id" msprop:Generator_ColumnPropNameInRow="transaction_id" msprop:Generator_ColumnPropNameInTable="transaction_idColumn" msprop:Generator_UserColumnName="transaction_id" type="xs:string" minOccurs="0" />
+              <xs:element name="game_id" msprop:Generator_ColumnVarNameInTable="columngame_id" msprop:Generator_ColumnPropNameInRow="game_id" msprop:Generator_ColumnPropNameInTable="game_idColumn" msprop:Generator_UserColumnName="game_id" type="xs:string" minOccurs="0" />
+              <xs:element name="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_UserColumnName="quantity" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="transaction_header_transaction_detail" msdata:parent="transaction_header" msdata:child="transaction_detail" msdata:parentkey="id" msdata:childkey="transaction_id" msprop:Generator_UserChildTable="transaction_detail" msprop:Generator_ChildPropName="Gettransaction_detailRows" msprop:Generator_UserRelationName="transaction_header_transaction_detail" msprop:Generator_RelationVarName="relationtransaction_header_transaction_detail" msprop:Generator_UserParentTable="transaction_header" msprop:Generator_ParentPropName="transaction_headerRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
